@@ -113,13 +113,67 @@
       </div>
     </div>
 
+    <!-- Our Services Section -->
     <div class="background-red col-12">
       <div class="row justify-center text-center mb-24">
         <div class="col">
           <div class="text-h6 q-mb-lg">Our Services</div>
         </div>
       </div>
-      <div class="row q-col-gutter-md"></div>
+      <div class="row q-col-gutter-md">
+        <div
+          v-for="(service, index) in services"
+          :key="index"
+          class="col-12 col-sm-6 col-md-6"
+        >
+          <q-card class="service-card">
+            <q-card-section class="service-card-section">
+              <q-img :src="service.image" :alt="service.title" class="service-image" />
+              <div class="text-h6 service-title">{{ service.title }}</div>
+              <p class="text-body2 service-description">
+                {{ service.description }}
+              </p>
+              <q-btn class="service-btn">Learn More</q-btn>
+            </q-card-section>
+          </q-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="background-light col-12">
+      <div class="row justify-center text-center mb-24">
+        <div class="col">
+          <div class="text-h6 q-mb-lg">Our Clients & Partners</div>
+        </div>
+      </div>
+
+      <!-- Partners Marquee -->
+      <div class="q-mb-xl">
+        <div class="text-h6 text-center q-mb-md">Our Partners</div>
+        <Vue3Marquee :duration="20" :pause-on-hover="true">
+          <div v-for="(partner, index) in partners" :key="index" class="marquee-item">
+            <q-img
+              :src="partner.image"
+              :alt="`Partner ${index + 1}`"
+              class="marquee-image"
+            />
+          </div>
+        </Vue3Marquee>
+      </div>
+
+      <!-- Clients Marquee -->
+      <div>
+        <div class="text-h6 text-center q-mb-md">Our Clients</div>
+        <Vue3Marquee :duration="20" :pause-on-hover="true" :direction="'reverse'">
+          <div v-for="(client, index) in clients" :key="index" class="marquee-item">
+            <q-img
+              :src="client.image"
+              :alt="`Client ${index + 1}`"
+              class="marquee-image"
+            />
+          </div>
+        </Vue3Marquee>
+      </div>
     </div>
   </q-page>
 </template>
@@ -139,6 +193,10 @@ const aboutUsImage1 = ref("");
 const aboutUsImage2 = ref("");
 const aboutUsImage3 = ref("");
 const chooseUs = ref([]);
+const services = ref([]);
+
+const partners = ref([]);
+const clients = ref([]);
 
 function getData() {
   heroTitle.value = "We Create Impactful Visuals for Your Brand";
@@ -179,6 +237,74 @@ function getData() {
       icon: "mdi:puzzle",
       title: "Maximized Visibility",
       description: "From design, production, to installation and legal permit handling.",
+    },
+  ];
+
+  services.value = [
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%201.png",
+      title: "Billboard & Outdoor Advertising",
+      description:
+        "We design, produce, and install large-scale billboards and outdoor media that effectively capture public attention while ensuring compliance with local advertising regulations and standards.",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%202.png",
+      title: "Signage & Neon Box",
+      description:
+        "From illuminated storefront signs to corporate building signage, we craft durable and visually appealing designs that strengthen your brand presence both day and night.",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+      title: "Digital Printing",
+      description:
+        "Using advanced printing technology, we deliver high-quality visuals on various materials, ensuring vibrant color accuracy, precision, and durability for your marketing and branding needs.",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%204.png",
+      title: "Advertising Tax & Permit Services",
+      description:
+        "We assist clients in obtaining ad permits, managing outdoor tax, and ensuring all promotional media adhere to government compliance and documentation requirements.",
+    },
+  ];
+
+  partners.value = [
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+    },
+  ];
+  clients.value = [
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
     },
   ];
 }
@@ -231,5 +357,65 @@ getData();
 
 .q-card:hover {
   transform: translateY(-5px);
+}
+
+/* Service Card styles */
+.service-card {
+  border-radius: 10px;
+}
+
+.service-card-section {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.service-title {
+  color: #041562;
+  margin: 0;
+}
+
+.service-description {
+  color: #041562;
+  margin: 0;
+}
+
+.service-btn {
+  width: 100%;
+  background: radial-gradient(circle, #082bc8 13%, #041562 71%);
+  color: white;
+  border-radius: 8px;
+}
+
+/* About Us styles */
+.background-light {
+  padding: 48px 120px;
+  background: #fcffe7;
+  color: black;
+}
+
+/* Marquee styles */
+.marquee-item {
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-image {
+  width: 150px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 </style>
