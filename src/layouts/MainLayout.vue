@@ -12,18 +12,7 @@
         <!-- Desktop Navigation -->
         <div class="q-gutter-sm hidden-xs">
           <q-btn flat label="About Us" @click="movePage('about')" class="text-white" />
-          <q-btn
-            flat
-            label="Why Choose Us"
-            @click="movePage('why-choose')"
-            class="text-white"
-          />
-          <q-btn
-            flat
-            label="Our Services"
-            @click="movePage('services')"
-            class="text-white"
-          />
+
           <q-btn flat label="Gallery" @click="movePage('gallery')" class="text-white" />
           <q-btn
             flat
@@ -50,12 +39,6 @@
       <q-list>
         <q-item clickable v-ripple @click="movePage('about')">
           <q-item-section>About Us</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple @click="movePage('why-choose')">
-          <q-item-section>Why Choose Us</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple @click="movePage('services')">
-          <q-item-section>Our Services</q-item-section>
         </q-item>
         <q-item clickable v-ripple @click="movePage('gallery')">
           <q-item-section>Gallery</q-item-section>
@@ -134,10 +117,6 @@ function movePage(sectionId) {
   drawerOpen.value = false; // Close drawer on mobile
   if (sectionId === "about") {
     router.push({ name: "AboutUs" });
-  } else if (sectionId === "why-choose") {
-    router.push({ name: "WhyChooseUs" });
-  } else if (sectionId === "services") {
-    router.push({ name: "OurServices" });
   } else if (sectionId === "gallery") {
     router.push({ name: "Gallery" });
   } else if (sectionId === "contact") {
@@ -161,6 +140,7 @@ function toggleDrawer() {
 }
 
 .nav {
+  padding: 0px 120px;
   display: flex;
   background: radial-gradient(circle, #082bc8 13%, #041562 71%);
 }
@@ -179,6 +159,12 @@ function toggleDrawer() {
   }
   .hidden-md-and-up {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0px 24px;
   }
 }
 

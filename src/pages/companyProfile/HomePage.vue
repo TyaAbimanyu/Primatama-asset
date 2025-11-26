@@ -26,6 +26,7 @@
             <div class="col-auto">
               <q-btn
                 class="btn btn-secondary q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--actionable"
+                @click="goToWhatsapp"
               >
                 Contact Us
               </q-btn>
@@ -172,6 +173,24 @@
         </Vue3Marquee>
       </div> -->
     </div>
+
+    <div class="background-red col-12">
+      <div class="row q-col-gutter-md items-center q-mb-md">
+        <div class="col-12 col-md-6 text-left">
+          <q-img
+            :src="contactUsImage"
+            alt="about us"
+            style="width: 100%; height: auto; border-radius: 10px"
+          />
+        </div>
+        <div class="col-12 col-md-6 text-left">
+          <div class="row q-mb-md" style="font-weight: 400">
+            {{ contactUs }}
+          </div>
+          <q-btn class="btn btn-about-us" @click="goToWhatsapp">Contact Us</q-btn>
+        </div>
+      </div>
+    </div>
   </q-page>
 </template>
 
@@ -194,6 +213,8 @@ const services = ref([]);
 
 const partners = ref([]);
 // const clients = ref([]);
+const contactUsImage = ref("");
+const contactUs = ref("");
 
 function getData() {
   heroTitle.value = "We Create Impactful Visuals for Your Brand";
@@ -270,7 +291,8 @@ function getData() {
 
   partners.value = [
     {
-      image: "src/assets/alfamidi.png",
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/alfamidi.png",
     },
     {
       image:
@@ -285,13 +307,16 @@ function getData() {
         "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/bosowa.png",
     },
     {
-      image: "src/assets/djarum.png",
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/djarum.png",
     },
     {
-      image: "src/assets/gudang_garam.png",
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/gudang_garam.png",
     },
     {
-      image: "src/assets/bentoel.png",
+      image:
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/bentoel.png",
     },
   ];
   // clients.value = [
@@ -312,8 +337,21 @@ function getData() {
   //       "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
   //   },
   // ];
+
+  contactUsImage.value = "src/assets/contact us.png";
+  contactUs.value =
+    "Reach out to us and discover how our expertise can elevate your brand presence across every corner of the city.";
 }
 getData();
+
+function goToWhatsapp() {
+  const phoneNumber = "6282124142224";
+  const message = encodeURIComponent(
+    "Hallo, bisa sayak mendapatkan informasi lebih lanjut mengenai layanan Primatama Promotion?"
+  );
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  window.open(whatsappUrl, "_blank");
+}
 </script>
 
 <style scoped>
