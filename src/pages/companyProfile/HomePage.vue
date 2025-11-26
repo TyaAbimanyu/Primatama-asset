@@ -149,7 +149,6 @@
 
       <!-- Partners Marquee -->
       <div class="q-mb-xl">
-        <div class="text-h6 text-center q-mb-md">Our Partners</div>
         <Vue3Marquee :duration="20" :pause-on-hover="true">
           <div v-for="(partner, index) in partners" :key="index" class="marquee-item">
             <q-img
@@ -161,9 +160,7 @@
         </Vue3Marquee>
       </div>
 
-      <!-- Clients Marquee -->
-      <div>
-        <div class="text-h6 text-center q-mb-md">Our Clients</div>
+      <!-- <div>
         <Vue3Marquee :duration="20" :pause-on-hover="true" :direction="'reverse'">
           <div v-for="(client, index) in clients" :key="index" class="marquee-item">
             <q-img
@@ -173,7 +170,7 @@
             />
           </div>
         </Vue3Marquee>
-      </div>
+      </div> -->
     </div>
   </q-page>
 </template>
@@ -196,7 +193,7 @@ const chooseUs = ref([]);
 const services = ref([]);
 
 const partners = ref([]);
-const clients = ref([]);
+// const clients = ref([]);
 
 function getData() {
   heroTitle.value = "We Create Impactful Visuals for Your Brand";
@@ -273,40 +270,48 @@ function getData() {
 
   partners.value = [
     {
-      image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+      image: "src/assets/alfamidi.png",
     },
     {
       image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/citicon.png",
     },
     {
       image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/sig.png",
     },
     {
       image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/src/assets/bosowa.png",
+    },
+    {
+      image: "src/assets/djarum.png",
+    },
+    {
+      image: "src/assets/gudang_garam.png",
+    },
+    {
+      image: "src/assets/bentoel.png",
     },
   ];
-  clients.value = [
-    {
-      image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
-    },
-    {
-      image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
-    },
-    {
-      image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
-    },
-    {
-      image:
-        "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
-    },
-  ];
+  // clients.value = [
+  //   {
+  //     image:
+  //       "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+  //   },
+  //   {
+  //     image:
+  //       "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+  //   },
+  //   {
+  //     image:
+  //       "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+  //   },
+  //   {
+  //     image:
+  //       "https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/main/Our%20Services%203.png",
+  //   },
+  // ];
 }
 getData();
 </script>
@@ -411,11 +416,20 @@ getData();
 
 .marquee-image {
   width: 150px;
-  height: 100px;
+  height: 150px;
   object-fit: contain;
   border-radius: 8px;
   background: white;
   padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .background-blue,
+  .background-red,
+  .background-light {
+    padding: 10px 24px;
+  }
 }
 </style>

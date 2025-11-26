@@ -79,7 +79,7 @@
             <div class="footer-logo">
               <q-img
                 src="https://raw.githubusercontent.com/TyaAbimanyu/Primatama-asset/75488ff23f15aee4f39a59c35b552c77c72ea2c0/logo%20primatama.png"
-                width="150px"
+                width="100px"
               />
             </div>
             <p class="tagline q-mt-md text-white">Your Vision, Our Display</p>
